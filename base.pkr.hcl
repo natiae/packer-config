@@ -20,7 +20,7 @@ source "tart-cli" "tart" {
   vm_name      = "${var.vm_name}"
   cpu_count    = 6
   memory_gb    = 8
-  disk_size_gb = 50
+  disk_size_gb = 80
   ssh_username = "admin"
   ssh_password = "admin"
   ssh_timeout  = "120s"

@@ -7,9 +7,9 @@ packer {
   }
 }
 
-variable "vm_name" {
+variable "base" {
   type        = string
-  description = "VM name (e.g., 'tahoe-base-xcode-26.3')."
+  description = "Base VM name to clone from (e.g., 'tahoe-base')."
 }
 
 variable "xcode_version" {
@@ -39,7 +39,8 @@ variable "xcodes_password" {
 }
 
 source "tart-cli" "tart" {
-  vm_name      = "${var.vm_name}"
+  vm_name      = "${var.base}-xcode-${var.xcode_version}"
+  vm_base_name = "${var.base}"
   cpu_count    = 6
   memory_gb    = 8
   disk_size_gb = var.disk_size
